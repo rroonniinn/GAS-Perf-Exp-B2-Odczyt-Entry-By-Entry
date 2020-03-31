@@ -185,6 +185,10 @@ const createWhereToPrintFiles = () => {
 	console.log(result);
 };
 
+/**
+ * Ujednolicenie wyglądu raportu
+ */
+
 const setTitle = () => {
 	// File
 	const fileUrl =
