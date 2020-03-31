@@ -1,15 +1,14 @@
 /* eslint-disable max-lines-per-function */
 
-
-
-import {
-	randomExternal,
-	randomLocal,
-	randomHub,
-} from './experiments';
-
+import { randomExternal, randomLocal, randomHub } from './experiments';
 import { deleteOldDate } from './tasks';
 import { startTimeTrigger, cancelTimeTriggers } from './triggers';
+import {
+	// createFolderStructure,
+	// createFilesForExt,
+	// createWhereToPrintFiles,
+	setTitle,
+} from './prepareStructure';
 
 // Funkcja do trigerów co minutę
 // @ts-ignore
@@ -27,7 +26,7 @@ global.randomHub = () => {
 
 // @ts-ignore
 global.menu = {
-	test: () => console.log('hello'),
+	test: () => setTitle(),
 	deleteOldDate,
 	triggers: {
 		ext: () => startTimeTrigger('randomExternal'),
@@ -40,10 +39,10 @@ global.menu = {
 const menu = () => {
 	const ui = SpreadsheetApp.getUi();
 	ui.createMenu('ICON')
-	// .addItem('randomLocal','randomLocal')
-	// .addItem('randomExternal','randomExternal')
-	// .addItem('randomHub','randomHub')
-	// .addSeparator()
+		// .addItem('randomLocal','randomLocal')
+		// .addItem('randomExternal','randomExternal')
+		// .addItem('randomHub','randomHub')
+		// .addSeparator()
 		// .addItem(
 		// 	'Usuń stare dane',
 		// 	'menu.deleteOldDate'
@@ -62,6 +61,5 @@ const menu = () => {
 		.addItem('Update menu', 'onOpen')
 		.addToUi();
 };
-
 
 export { menu };
